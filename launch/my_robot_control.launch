@@ -14,8 +14,8 @@ with the robot state publisher for the TF publication-->
   args="joint_state_controller my_robot_velocity_controller "/>
 
   <!-- convert joint states to TF transforms for rviz, etc -->
-  <node pkg="robot_state_publisher" name="robot_state_publisher" 
-  type="robot_state_publisher" respawn="false" output="screen">
+  <!--node pkg="robot_state_publisher" name="robot_state_publisher" 
+  type="robot_state_publisher" respawn="false" output="screen"/-->
     <!--remap from="/joint_states" to="/my_robot/joint_states" /-->
   </node>
 

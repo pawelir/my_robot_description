@@ -11,7 +11,7 @@ find_package(catkin REQUIRED COMPONENTS
   controller_manager
   # gazebo_ros
   joint_state_publisher
-  robot_state_publisher
+  #robot_state_publisher
   rospy
   # rviz
 )
