@@ -1,0 +1,8 @@
+<launch>
+
+    <!-- Start joint_state_publisher (for representation in rviz) -->
+    <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" output="screen"/>
+    <!-- Open in Rviz   -->
+    <!-- <node name="rviz" pkg="rviz" type="rviz" args="-d $(find my_robot_description)/rviz_config/urdf_visu.rviz"/> -->
+
+</launch>

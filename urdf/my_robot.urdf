@@ -1,0 +1,549 @@
+<?xml version="1.0"?>
+<robot name="my_robot">
+    
+    <material name="blue">
+        <color rgba="0 0 0.8 1"/>
+    </material>
+    <material name="red">
+        <color rgba="0.8 0 0 1"/>
+    </material>
+    <material name="green">
+        <color rgba="0 0.8 0 1"/>
+    </material>
+    <material name="grey">
+        <color rgba="0.75 0.75 0.75 1"/>
+    </material>
+    <material name="white">
+        <color rgba="1.0 1.0 1.0 1"/>
+    </material>
+    <material name="black">
+        <color rgba="0 0 0 1"/>
+    </material>
+
+    <!--#### ############### ####-->
+    <!--#### #### LINKS #### ####-->
+    <!--#### ############### ####-->
+    
+    <link name="base_footprint">
+    </link>
+
+    <link name="lower_base_link">
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <mass value="10.0" />
+            <inertia ixx="0.06556" ixy="0.0" ixz="0.0" iyy="0.21315" iyz="0.0" izz="0.2691"/>
+        </inertial>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <box size="0.5 0.27 0.076"/>
+            </geometry>
+        </collision>
+        <visual>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+            <geometry>
+                <mesh filename="package://my_robot_description/models/meshes/podwozie.dae" />
+            </geometry>
+            <material name="grey"/>
+        </visual>
+    </link>
+
+    <link name="upper_base_link">
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 1.57"/>
+            <mass value="25.0" />
+            <inertia ixx="0.19814" ixy="0.0" ixz="0.0" iyy="0.3701" iyz="0.0" izz="0.42805"/>
+        </inertial>
+        <collision>
+            <origin xyz="0.0 0.065 0.04" rpy="0 0 1.57"/>
+            <geometry>
+                <box size="0.5 0.392 0.29"/>
+            </geometry>
+        </collision>
+        <visual>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+            <geometry>
+                <mesh filename="package://my_robot_description/models/meshes/nadwozie.dae" scale="0.001 0.001 0.001"/>
+            </geometry>
+            <material name="grey"/>
+        </visual>
+    </link>
+
+    <link name="head_collision_link">
+        <collision>
+            <origin xyz="0.0 0.0 0.0" rpy="0 0 1.57"/>
+            <geometry>
+                <box size="0.3 0.392 0.15"/>
+            </geometry>
+        </collision>
+    </link>
+
+    <link name="inner_body_link">
+        <visual>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+            <geometry>
+                <mesh filename="package://my_robot_description/models/meshes/wewn.dae"/>
+            </geometry>
+        </visual>
+    </link>
+
+    <link name="left_front_motor_link">
+        <visual>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+            <geometry>
+                <mesh filename="package://my_robot_description/models/meshes/naped.dae" scale="10 10 10"/>
+            </geometry>
+        </visual>
+    </link>
+
+    <link name="left_rear_motor_link">
+        <visual>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+            <geometry>
+                <mesh filename="package://my_robot_description/models/meshes/naped.dae" scale="10 10 10"/>
+            </geometry>
+        </visual>
+    </link>
+
+    <link name="right_front_motor_link">
+        <visual>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+            <geometry>
+                <mesh filename="package://my_robot_description/models/meshes/naped.dae" scale="10 10 10"/>
+            </geometry>
+        </visual>
+    </link>
+
+    <link name="right_rear_motor_link">
+        <visual>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+            <geometry>
+                <mesh filename="package://my_robot_description/models/meshes/naped.dae" scale="10 10 10"/>
+            </geometry>
+        </visual>
+    </link>
+
+    <link name="left_front_wheel_link">
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 1.57 0"/>
+            <mass value="4.0" />
+            <inertia ixx="0.00699" ixy="0.0" ixz="0.0" iyy="0.00699" iyz="0.0" izz="0.01125"/>
+        </inertial>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 1.57 0"/>
+            <geometry>
+                <cylinder radius="0.075" length="0.064"/>
+            </geometry>
+        </collision>
+        <visual>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+            <geometry>
+                <mesh filename="package://my_robot_description/models/meshes/kolo.dae" scale="0.001 0.001 0.001"/>
+            </geometry>
+            <material name="black"/>
+        </visual>
+    </link>
+
+    <link name="left_rear_wheel_link">
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 1.57 0"/>
+            <mass value="4.0" />
+            <inertia ixx="0.00699" ixy="0.0" ixz="0.0" iyy="0.00699" iyz="0.0" izz="0.01125"/>
+        </inertial>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 1.57 0"/>
+            <geometry>
+                <cylinder radius="0.075" length="0.064"/>
+            </geometry>
+        </collision>
+        <visual>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+            <geometry>
+                <mesh filename="package://my_robot_description/models/meshes/kolo.dae" scale="0.001 0.001 0.001"/>
+            </geometry>
+            <material name="black"/>
+        </visual>
+    </link>
+
+    <link name="right_front_wheel_link">
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 1.57 0"/>
+            <mass value="4.0" />
+            <inertia ixx="0.00699" ixy="0.0" ixz="0.0" iyy="0.00699" iyz="0.0" izz="0.01125"/>
+        </inertial>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 1.57 0"/>
+            <geometry>
+                <cylinder radius="0.075" length="0.064"/>
+            </geometry>
+        </collision>
+        <visual>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+            <geometry>
+                <mesh filename="package://my_robot_description/models/meshes/kolo.dae" scale="0.001 0.001 0.001"/>
+            </geometry>
+            <material name="black"/>
+        </visual>
+    </link>
+
+    <link name="right_rear_wheel_link">
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 1.57 0"/>
+            <mass value="4.0" />
+            <inertia ixx="0.00699" ixy="0.0" ixz="0.0" iyy="0.00699" iyz="0.0" izz="0.01125"/>
+        </inertial>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 1.57 0"/>
+            <geometry>
+                <cylinder radius="0.075" length="0.064"/>
+            </geometry>
+        </collision>
+        <visual>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+            <geometry>
+                <mesh filename="package://my_robot_description/models/meshes/kolo.dae" scale="0.001 0.001 0.001"/>
+            </geometry>
+            <material name="black"/>
+        </visual>
+    </link>
+
+    <link name="rear_laser_link">
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <mass value="0.37" />
+            <inertia ixx="0.0003444" ixy="0.0" ixz="0.0" iyy="0.0003444" iyz="0.0" izz="0.000222"/>
+        </inertial>
+        <collision>
+            <origin xyz="0 0 0.0435" rpy="0 0 0"/>
+            <geometry>
+                <box size="0.06 0.06 0.087"/>
+            </geometry>
+        </collision>
+        <visual>
+            <origin rpy="0 0 1.57" xyz="0 0 0"/>
+            <geometry>
+                <mesh filename="package://my_robot_description/models/meshes/lidar.dae"/>
+            </geometry>
+            <material name="red"/>
+        </visual>
+    </link>
+
+    <link name="front_laser_link">
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <mass value="0.37" />
+            <inertia ixx="0.0003444" ixy="0.0" ixz="0.0" iyy="0.0003444" iyz="0.0" izz="0.000222"/>
+        </inertial>
+        <collision>
+            <origin xyz="0 0 0.0435" rpy="0 0 0"/>
+            <geometry>
+                <box size="0.06 0.06 0.087"/>
+            </geometry>
+        </collision>
+        <visual>
+            <origin rpy="0 0 1.57" xyz="0 0 0"/>
+            <geometry>
+                <mesh filename="package://my_robot_description/models/meshes/lidar.dae"/>
+            </geometry>
+            <material name="red"/>
+        </visual>
+    </link>
+
+    <!--#### ################ ####-->
+    <!--#### #### JOINTS #### ####-->
+    <!--#### ################ ####-->
+
+    <joint name="lower_base_joint" type="fixed">
+        <parent link="base_footprint"/>
+        <child link="lower_base_link"/>
+        <origin xyz="0.0 0.0 0.075" rpy="0 0 0" />
+    </joint>
+
+    <joint name="upper_base_joint" type="fixed">
+        <parent link="lower_base_link"/>
+        <child link="upper_base_link"/>
+        <origin xyz="0.065 0 0.193" rpy="0 0 1.57" />
+    </joint>
+        
+    <joint name="head_collision_joint" type="fixed">
+        <parent link="upper_base_link"/>
+        <child link="head_collision_link"/>
+        <origin xyz="0.0 -0.14 0.12" rpy="0 0 0" />
+    </joint>
+
+    <joint name="inner_body_joint" type="fixed">
+        <parent link="upper_base_link"/>
+        <child link="inner_body_link"/>
+        <origin xyz="0.0 0.085 -0.01" rpy="0 0 -1.57" />
+    </joint>
+
+    <joint name="left_front_motor_joint" type="fixed">
+        <parent link="lower_base_link"/>
+        <child link="left_front_motor_link"/>
+        <origin xyz="0.2 0.082 0.0" rpy="0 0 -1.57"/>
+    </joint>
+
+    <joint name="left_rear_motor_joint" type="fixed">
+        <parent link="lower_base_link"/>
+        <child link="left_rear_motor_link"/>
+        <origin xyz="-0.2 0.082 0.0" rpy="3.14 0 -1.57"/>
+    </joint>
+
+    <joint name="right_front_motor_joint" type="fixed">
+        <parent link="lower_base_link"/>
+        <child link="right_front_motor_link"/>
+        <origin xyz="0.2 -0.082 0.0" rpy="3.14 0 1.57"/>
+    </joint>
+    
+    <joint name="right_rear_motor_joint" type="fixed">
+        <parent link="lower_base_link"/>
+        <child link="right_rear_motor_link"/>
+        <origin xyz="-0.2 -0.082 0.0" rpy="0 0 1.57"/>
+    </joint>
+
+    <joint name="left_front_wheel_joint" type="continuous">
+        <parent link="lower_base_link"/>
+        <child link="left_front_wheel_link"/>
+        <origin xyz="0.2 0.173 0.0" rpy="0 0 1.57"/>
+        <axis xyz="1 0 0"/>
+        <limit effort="100" velocity="100"/>
+        <joint_properties damping="0.0" friction="0.0"/>
+    </joint>
+
+    <joint name="left_rear_wheel_joint" type="continuous">
+        <parent link="lower_base_link"/>
+        <child link="left_rear_wheel_link"/>
+        <origin xyz="-0.2 0.173 0.0" rpy="0 0 1.57"/>
+        <axis xyz="1 0 0"/>
+        <limit effort="100" velocity="100"/>
+        <joint_properties damping="0.0" friction="0.0"/>
+    </joint>
+
+    <joint name="right_front_wheel_joint" type="continuous">
+        <parent link="lower_base_link"/>
+        <child link="right_front_wheel_link"/>
+        <origin xyz="0.2 -0.173 0.0" rpy="0 0 1.57"/>
+        <axis xyz="1 0 0"/>
+        <limit effort="100" velocity="100"/>
+        <joint_properties damping="0.0" friction="0.0"/>
+    </joint>
+
+    <joint name="right_rear_wheel_joint" type="continuous">
+        <parent link="lower_base_link"/>
+        <child link="right_rear_wheel_link"/>
+        <origin xyz="-0.2 -0.173 0.0" rpy="0 0 1.57"/>
+        <axis xyz="1 0 0"/>
+        <limit effort="100" velocity="100"/>
+        <joint_properties damping="0.0" friction="0.0"/>
+    </joint>
+
+    <joint name="rear_laser_joint" type="fixed">
+        <parent link="upper_base_link"/>
+        <child link="rear_laser_link"/>
+        <origin xyz="0.205 0.3465 -0.105" rpy="0 0 0" />
+    </joint>
+
+    <joint name="front_laser_joint" type="fixed">
+        <parent link="upper_base_link"/>
+        <child link="front_laser_link"/>
+        <origin xyz="-0.205 -0.2155 -0.105" rpy="0 0 3.14159" />
+    </joint>
+
+    <!--#### ######################## ####-->
+    <!--#### #### GAZEBO PLUGINS #### ####-->
+    <!--#### ######################## ####-->
+
+    <gazebo>
+        <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+            <robotNamespace>/my_robot</robotNamespace>
+        </plugin>
+    </gazebo>
+
+    <gazebo reference="lower_base_link">
+        <kp>100000.0</kp>
+        <kd>10.0</kd>
+        <mu1>10.0</mu1>
+        <mu2>10.0</mu2>
+        <material>Gazebo/Grey</material>
+    </gazebo>
+
+    <gazebo reference="upper_base_link">
+        <kp>100000.0</kp>
+        <kd>10.0</kd>
+        <mu1>10.0</mu1>
+        <mu2>10.0</mu2>
+        <material>Gazebo/Grey</material>
+    </gazebo>
+
+    <gazebo reference="head_collision_link">
+    </gazebo>
+
+    <gazebo reference="inner_body_link">
+        <material>Gazebo/Gold</material>
+    </gazebo>
+
+    <gazebo reference="left_front_motor_link">
+        <material>Gazebo/Blue</material>
+    </gazebo>
+
+    <gazebo reference="left_rear_motor_link">
+        <material>Gazebo/Blue</material>
+    </gazebo>
+
+    <gazebo reference="right_front_motor_link">
+        <material>Gazebo/Blue</material>
+    </gazebo>
+
+    <gazebo reference="right_rear_motor_link">
+        <material>Gazebo/Blue</material>
+    </gazebo>
+
+    <gazebo reference="left_front_wheel_link">
+      <mu1 value="1.0"/>
+      <mu2 value="1.0"/>
+      <kp  value="10000000.0" />
+      <kd  value="1.0" />
+      <material>Gazebo/DarkGrey</material>
+      <turnGravityOff>false</turnGravityOff>
+    </gazebo>
+
+    <gazebo reference="left_rear_wheel_link">
+      <mu1 value="1.0"/>
+      <mu2 value="1.0"/>
+      <kp  value="10000000.0" />
+      <kd  value="1.0" />
+      <material>Gazebo/DarkGrey</material>
+      <turnGravityOff>false</turnGravityOff>
+    </gazebo>
+
+    <gazebo reference="right_front_wheel_link">
+      <mu1 value="1.0"/>
+      <mu2 value="1.0"/>
+      <kp  value="10000000.0" />
+      <kd  value="1.0" />
+      <material>Gazebo/DarkGrey</material>
+      <turnGravityOff>false</turnGravityOff>
+    </gazebo>
+
+    <gazebo reference="right_rear_wheel_link">
+      <mu1 value="1.0"/>
+      <mu2 value="1.0"/>
+      <kp  value="10000000.0" />
+      <kd  value="1.0" />
+      <material>Gazebo/DarkGrey</material>
+      <turnGravityOff>false</turnGravityOff>
+    </gazebo>
+
+    <gazebo reference="rear_laser_link">
+        <sensor type="ray" name="rear_hokuyo_sensor">
+        <pose>0 0 0 0 0 0</pose>
+        <visualize>false</visualize>
+        <update_rate>20</update_rate>
+        <ray>
+            <scan>
+            <horizontal>
+                <samples>540</samples>
+                <resolution>1</resolution>
+                <min_angle>-1.570796</min_angle>
+                <max_angle>3.141592</max_angle>
+            </horizontal>
+            </scan>
+            <range>
+                <min>0.10</min>
+                <max>15.0</max>
+                <resolution>0.01</resolution>
+            </range>
+            <noise>
+                <type>gaussian</type>
+                <mean>0.0</mean>
+                <stddev>0.01</stddev>
+            </noise>
+        </ray>
+        <plugin name="gazebo_ros_head_hokuyo_controller" filename="libgazebo_ros_laser.so">
+            <topicName>my_robot/rear_laser_scan</topicName>
+            <frameName>rear_laser_link</frameName>
+        </plugin>
+        </sensor>
+    </gazebo>
+
+    <gazebo reference="front_laser_link">
+        <sensor type="ray" name="front_hokuyo_sensor">
+        <pose>0 0 0 0 0 0</pose>
+        <visualize>false</visualize>
+        <update_rate>30</update_rate>
+        <ray>
+            <scan>
+            <horizontal>
+                <samples>540</samples>
+                <resolution>1</resolution>
+                <min_angle>-1.570796</min_angle>
+                <max_angle>3.141592</max_angle>
+            </horizontal>
+            </scan>
+            <range>
+                <min>0.10</min>
+                <max>15.0</max>
+                <resolution>0.01</resolution>
+            </range>
+            <noise>
+                <type>gaussian</type>
+                <mean>0.0</mean>
+                <stddev>0.01</stddev>
+            </noise>
+        </ray>
+        <plugin name="gazebo_ros_head_hokuyo_controller" filename="libgazebo_ros_laser.so">
+            <topicName>/my_robot/front_laser_scan</topicName>
+            <frameName>front_laser_link</frameName>
+        </plugin>
+        </sensor>
+    </gazebo>
+
+    <!--#### ####################### ####-->
+    <!--#### #### TRANSMISSIONS #### ####-->
+    <!--#### ####################### ####-->
+
+    <transmission name="tran1">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="left_front_wheel_joint">
+            <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="motor1">
+            <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+
+    <transmission name="tran2">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="left_rear_wheel_joint">
+            <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="motor2">
+            <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+
+    <transmission name="tran3">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="right_front_wheel_joint">
+            <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="motor3">
+            <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+
+    <transmission name="tran4">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="right_rear_wheel_joint">
+            <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="motor4">
+            <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+</robot>
+

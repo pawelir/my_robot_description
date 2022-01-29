@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--spawns the MY_ROBOT URDF file into the given point in space, -->
+<!--if a gazebo simulation is running.-->
+<launch>
+   <include file="$(find my_robot_description)/launch/spawn_urdf.launch">
+       <arg name="x" value="0.0"/>
+       <arg name="y" value=".5"/>
+       <arg name="z" value="0.2"/>
+       <arg name="urdf_robot_file" value="$(find my_robot_description)/urdf/my_robot.urdf"/>
+       <arg name="robot_name" value="my_robot"/>
+   </include>
+</launch>
