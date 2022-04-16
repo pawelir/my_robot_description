@@ -18,8 +18,6 @@
     <include file="$(find my_robot_description)/launch/my_robot_control_wheels.launch"/>
     <!-- Visualize in Rviz   -->
     <include file="$(find my_robot_description)/launch/visualize_in_rviz.launch"/>
-    <!-- Launch velocity converter -->
-    <node pkg="my_robot_description" type="convert_vels.py" name="convert_vels"/>
 
 </launch>
 
